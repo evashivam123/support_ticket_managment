@@ -4,6 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const authRoutes = require("./src/routes/authRoutes.ts");
+const ticketRoutes = require("./src/routes/ticketRoutes.ts");
 
 const app = express();
 const port = Number(process.env.PORT) || 3000;
@@ -11,6 +12,7 @@ const port = Number(process.env.PORT) || 3000;
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoutes);
+app.use("/api/tickets", ticketRoutes);
 
 app.get("/", (_req, res) => {
   res.json({ message: "Support ticket API is running" });
